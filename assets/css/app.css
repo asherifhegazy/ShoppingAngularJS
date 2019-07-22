@@ -45,3 +45,7 @@ a.text-decoration-none {
 a.text-decoration-none:hover {
     color: black;
 }
+
+.carousel-inner img {
+    margin: 0 auto;
+}

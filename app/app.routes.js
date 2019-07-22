@@ -6,13 +6,25 @@ eShopApp.config(function ($routeProvider,$locationProvider) {
 
     $routeProvider.when('/home',{
         templateUrl:'app/components/products/productsView.html',
-        controller:'ProductsController'
+        controller:'ProductsController',
+        resolve: {
+            products: function (products) {
+                return products.getProducts();
+            }
+        }
     });
 
     $routeProvider.when('/products/:id', {
         templateUrl:'app/components/productDetails/productDetailsView.html',
-        controller:'ProductDetailsController'
-    })
+        controller:'ProductDetailsController',
+        resolve: {
+            product: function ($route, productDetails) {
+                return productDetails.getProductDetails($route.current.pathParams.id);
+            }
+        }
+    });
+
+    $routeProvider.otherwise({redirectTo:'/home'});
     
     // $locationProvider.html5Mode(true);
 });
