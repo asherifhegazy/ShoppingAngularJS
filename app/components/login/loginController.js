@@ -1,11 +1,11 @@
-eShopApp.controller('LoginController', function ($scope, login, $cookieStore, $window) {
+eShopApp.controller('LoginController', function ($scope, login, $window, session) {
     $scope.login = function (username, loginForm) {
         if (loginForm.$valid) {
             login.getUser(username)
                 .then(function(response) {
 
                     if(response.data){
-                        $cookieStore.put('user',JSON.stringify(response.data));
+                        session.login(response.data);
                         toastr.success('Welcome ' + response.data.username);
                         $window.location = "#/home";
                     }

@@ -1,11 +1,15 @@
-eShopApp.factory('session', function ($cookieStore) {
+eShopApp.factory('session', function ($localStorage) {
     return {
         getLoggedInUser: function () {
-            return $cookieStore.get('user');
+            return $localStorage.getObject('user');
         },
 
         logout: function () {
-            $cookieStore.remove('user');
+            $localStorage.remove('user');
+        },
+
+        login: function (user) {
+            $localStorage.setObject('user', user);
         }
     }
 });
