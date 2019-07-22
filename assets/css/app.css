@@ -9,11 +9,11 @@
     transform: translate(-50%, -50%);
 }
 
-.login-background{
+.login-background {
     background-color: #7CD176;
 }
 
-.login{
+.login {
     height: 100%;
     text-align: center;
     display: flex;
@@ -22,4 +22,26 @@
 
 .toast-top-right {
     top: 50px;
+}
+
+.badge-notify {
+    background: red;
+    position: relative;
+    top: 15px;
+    left: -20px;
+    width: 25px;
+    height: 25px;
+    border: white 2px solid;
+}
+
+.navbar-background {
+    background-color: #EDEDED;
+}
+
+a.text-decoration-none {
+    color: black;
+}
+
+a.text-decoration-none:hover {
+    color: black;
 }
