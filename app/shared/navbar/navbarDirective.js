@@ -6,8 +6,26 @@ eShopApp.directive('navBar',function () {
         scope:{
 
         },
-        controller: function ($scope, session) {
-            $scope.username = session.getLoggedInUser().username;
+        controller: function ($scope, session, cart) {
+            $scope.username = '';
+
+            let user = {
+                username: 'please login'
+            };
+            if(session.isUserLooged())
+                user = session.getLoggedInUser();
+
+            $scope.username = user.username;
+
+            $scope.numOfCartItems = 0;
+
+            cart.getCartItems(user.id)
+                .then(function (response) {
+                    $scope.numOfCartItems = response.data.length;
+                })
+                .catch(function () {
+                    $scope.numOfCartItems = 0;
+                });
 
             $scope.logout = function () {
                 session.logout();

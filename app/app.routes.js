@@ -24,6 +24,22 @@ eShopApp.config(function ($routeProvider,$locationProvider) {
         }
     });
 
+    $routeProvider.when('/cart', {
+        templateUrl:'app/components/cart/cartView.html',
+        controller:'CartController',
+        resolve: {
+            cartItems: function (cart,session) {
+                let id = 0;
+                if(session.isUserLooged()) {
+                    let user = session.getLoggedInUser();
+                    id = user.id;
+                }
+
+                return cart.getCartItems(id);
+            }
+        }
+    });
+
     $routeProvider.otherwise({redirectTo:'/home'});
     
     $locationProvider.html5Mode(true);
