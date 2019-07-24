@@ -12,4 +12,6 @@ eShopApp.factory('session', function ($localStorage) {
             $localStorage.setObject('user', user);
         }
     }
+
 });
+

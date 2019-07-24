@@ -1,0 +1,23 @@
+<div>
+    <nav-bar/>
+</div>
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div ng-repeat="product in products" class="col-lg-4 col-md-6 col-12">
+                <a href="products/{{product.id}}" class="text-decoration-none">
+                    <div class="row justify-content-center">
+                        <img ng-src="{{product.imagePosterUrl}}" alt="{{product.name}}">
+                    </div>
+                    <div class="row mt-2 justify-content-center">
+                        <h3>{{product.name}}</h3>
+                    </div>
+                    <div class="row mt-1 justify-content-center">
+                        <h3 class="text-danger">{{product.price | currency}}</h3>
+                    </div>
+                    <div class="row mt-2 justify-content-center text-center pl-3 pr-3">
+                        <p>{{product.description | truncateStr: 200}}</p>
+                    </div>
+                </a>
+        </div>
+    </div>
+</div>
