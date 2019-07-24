@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="centered text-center">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <i class="fas fa-shopping-cart"></i> <span class="lead font-weight-bold">eShop.com</span>
+            </div>
+
+            <div class="mt-3">
+                <form name="loginForm" class="justify-content-center">
+                    <div class="form-group">
+                        <input class="form-control" type="text" required ng-pattern="usernamePattern"
+                               placeholder="User Name" ng-model="username">
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid"
+                            ng-click="login(username,loginForm)">Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
