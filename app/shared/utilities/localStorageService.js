@@ -1,6 +1,7 @@
 eShopApp.factory('$localStorage', function ($window) {
     return {
         get: (key) => {
+
         return $window.localStorage[key];
     },
     set: (key, value) => {
@@ -21,4 +22,5 @@ eShopApp.factory('$localStorage', function ($window) {
         $window.localStorage.removeItem(key);
     }
 }
+
 });

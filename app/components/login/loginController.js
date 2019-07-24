@@ -1,4 +1,6 @@
+
 eShopApp.controller('LoginController', function ($scope, login, session, patterns, $timeout, $location) {
+
     $scope.login = function (username, loginForm) {
         if (loginForm.$valid) {
             login.getUser(username)
@@ -6,7 +8,9 @@ eShopApp.controller('LoginController', function ($scope, login, session, pattern
                     if(response.data){
                         session.login(response.data);
                         toastr.success('Welcome ' + response.data.username);
+
                         $location.path('home');
+
                     }
                     else{
                         toastr.error('Incorrect Username');
