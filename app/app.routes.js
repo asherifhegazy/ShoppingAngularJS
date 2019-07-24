@@ -4,5 +4,5 @@ eShopApp.config(function ($routeProvider,$locationProvider) {
         controller:'LoginController'
     });
     
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 });
