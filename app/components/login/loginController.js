@@ -1,4 +1,4 @@
-eShopApp.controller('LoginController', function ($scope, login, $window, session) {
+eShopApp.controller('LoginController', function ($scope, login, session, patterns, $timeout, $location) {
     $scope.login = function (username, loginForm) {
         if (loginForm.$valid) {
             login.getUser(username)
@@ -7,7 +7,7 @@ eShopApp.controller('LoginController', function ($scope, login, $window, session
                     if(response.data){
                         session.login(response.data);
                         toastr.success('Welcome ' + response.data.username);
-                        $window.location = "#/home";
+                        $location.path('home');
                     }
                     else{
                         toastr.error('Incorrect Username');
@@ -19,6 +19,6 @@ eShopApp.controller('LoginController', function ($scope, login, $window, session
         }
     };
 
-    $scope.usernamePattern = /^(?:[A-Za-z0-9]+)(?:[A-Za-z0-9]*)$/;
+    $scope.usernamePattern = patterns.usernamePattern;
 
 });

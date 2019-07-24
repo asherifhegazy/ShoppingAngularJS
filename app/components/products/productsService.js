@@ -1,7 +1,7 @@
-eShopApp.factory('products', function ($http) {
+eShopApp.factory('products', function ($http, config) {
     return {
         getProducts: function () {
-            return $http({method: 'GET', url: 'https://localhost:44302/api/Products'});
+            return $http({method: 'GET', url: config.api + 'Products'});
         }
     }
 });
