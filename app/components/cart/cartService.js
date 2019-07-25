@@ -1,7 +1,6 @@
-eShopApp.factory('cart',function ($http, config, session) {
-    // let user = session.getLoggedInUser();
+eShopApp.factory('cart',function ($http, API) {
 
-    const cartAPI = config.api + 'CartItems/';
+    const cartAPI = API.baseUrl + API.cart;
 
     return {
         getCartItems: function (userId) {
@@ -26,7 +25,7 @@ eShopApp.factory('cart',function ($http, config, session) {
         },
 
         submitOrder: function (userId) {
-            return $http({method: 'POST', url: config.api + 'Orders/' + userId});
+            return $http({method: 'POST', url: API.baseUrl + API.orders + userId});
         }
     }
 });

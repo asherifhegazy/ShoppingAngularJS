@@ -1,5 +1,7 @@
-eShopApp.factory('config',function () {
-    return {
-        api: 'https://localhost:44302/api/'
-    }
+eShopApp.constant('API', {
+    baseUrl: 'https://localhost:44302/api/',
+    login: 'Users/',
+    products: 'Products/',
+    cart: 'CartItems/',
+    orders: 'Orders/'
 });

@@ -1,7 +1,7 @@
-eShopApp.factory('login', function ($http, config) {
+eShopApp.factory('login', function ($http, API) {
     return {
         getUser: function (username) {
-            return $http({method: 'GET', url: config.api + 'Users/user/' + username});
+            return $http({method: 'GET', url: API.baseUrl + API.login + 'user/' + username});
         }
     }
 });

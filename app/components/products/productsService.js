@@ -1,5 +1,5 @@
-eShopApp.factory('products', function ($http, config) {
-    const productAPI = config.api + 'Products/';
+eShopApp.factory('products', function ($http, API) {
+    const productAPI = API.baseUrl + API.products;
     return {
         getProducts: function () {
             return $http({method: 'GET', url: productAPI});

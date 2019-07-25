@@ -9,9 +9,9 @@
     transform: translate(-50%, -50%);
 }
 
-.login-background {
-    background-color: #7CD176;
-}
+/*body:has(#login){*/
+/*    background-color: #7CD176;*/
+/*}*/
 
 .login {
     height: 100%;
