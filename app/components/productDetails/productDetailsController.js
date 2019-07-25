@@ -1,5 +1,5 @@
 eShopApp.controller('ProductDetailsController',function ($scope, $route, session, productDetails, cart, $location) {
-    $scope.isDisabled = !session.isUserLooged();
+    $scope.isDisabled = !session.isUserLogged();
 
     $scope.product = $route.current.locals.product.data;
 

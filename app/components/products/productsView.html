@@ -3,10 +3,11 @@
 </div>
 <div class="container mt-3">
     <div class="row justify-content-center">
-        <div ng-repeat="product in products" class="col-lg-4 col-md-6 col-12">
-                <a href="products/{{product.id}}" class="text-decoration-none">
-                    <div class="row justify-content-center">
-                        <img ng-src="{{product.imagePosterUrl}}" alt="{{product.name}}">
+        <div data-ng-repeat="product in products" class="col-lg-4 col-md-6 col-12">
+                <a data-ng-href="products/{{product.id}}" class="text-decoration-none">
+                    <div class="row justify-content-center" >
+<!--                        <img src="../../../assets/img/spinner.gif" ng-hide="ready" alt="" class="loading-image">-->
+                        <img data-ng-src="{{product.imagePosterUrl}}" alt="{{product.name}}"/>
                     </div>
                     <div class="row mt-2 justify-content-center">
                         <h3>{{product.name}}</h3>

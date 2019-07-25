@@ -12,10 +12,8 @@ eShopApp.factory('session', function ($localStorage) {
             $localStorage.setObject('user', user);
         },
 
-        isUserLooged: function () {
+        isUserLogged: function () {
             return $localStorage.isExists('user');
         }
     }
-
 });
-

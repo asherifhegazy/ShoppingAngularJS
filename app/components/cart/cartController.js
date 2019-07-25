@@ -16,16 +16,15 @@ eShopApp.controller('CartController',function ($scope, $route, cart, session, $l
     });
 
     $scope.removeItem = function (item) {
-        // $scope.cartItems.splice();
         cart.removeItemFromCart(item.userId, item.productId)
             .then(function (response) {
                 toastr.success('Item Removed Successfully');
+                $route.reload();
             })
             .catch(function (response) {
                 toastr.error('Something Went Wrong');
             });
 
-        $route.reload();
     };
 
     $scope.submitOrder = function () {

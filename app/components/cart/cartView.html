@@ -14,10 +14,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="item in cartItems track by item.productId">
+            <tr data-ng-repeat="item in cartItems track by item.productId">
                 <td>
                     <div class="row justify-content-center">
-                        <img ng-src="{{item.product.imagePosterUrl}}" alt="" class="img-fluid">
+                        <img data-ng-src="{{item.product.imagePosterUrl}}" alt="" class="img-fluid">
                     </div>
                 </td>
                 <td>
@@ -26,11 +26,11 @@
                             <h4>{{item.product.name}}</h4>
                         </div>
                         <div class="row mt-1">
-                            <h6 class="text-success" ng-show="item.inStock">In Stock</h6>
-                            <h6 class="text-danger" ng-hide="item.inStock">Out Of Stock</h6>
+                            <h6 class="text-success" data-ng-show="item.inStock">In Stock</h6>
+                            <h6 class="text-danger" data-ng-hide="item.inStock">Out Of Stock</h6>
                         </div>
                         <div class="row mt-1">
-                            <a href="" ng-click="removeItem(item)">Delete</a>
+                            <a data-ng-href="#" data-ng-click="removeItem(item)">Delete</a>
                         </div>
                     </div>
                 </td>
@@ -41,6 +41,6 @@
         </table>
     </div>
     <div class="row justify-content-end mr-3">
-        <button class="btn btn-success" ng-disabled="isEmpty" ng-click="submitOrder()">Submit</button>
+        <button class="btn btn-success" data-ng-disabled="isEmpty" data-ng-click="submitOrder()">Submit</button>
     </div>
 </div>

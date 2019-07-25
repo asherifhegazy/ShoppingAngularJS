@@ -8,6 +8,10 @@ eShopApp.factory('cart',function ($http, config, session) {
             return $http({method: 'GET', url: cartAPI + userId});
         },
 
+        getNumberOfCartItems: function(userId) {
+            return $http({method: 'GET', url: cartAPI + 'count/' + userId});
+        },
+
         addCartItem: function (item) {
             return $http({method: 'POST', url: cartAPI, data: item});
         },
@@ -22,7 +26,7 @@ eShopApp.factory('cart',function ($http, config, session) {
         },
 
         submitOrder: function (userId) {
-            return $http({method: 'POST', url: config.api + 'Orders/' + user.id});
+            return $http({method: 'POST', url: config.api + 'Orders/' + userId});
         }
     }
 });
