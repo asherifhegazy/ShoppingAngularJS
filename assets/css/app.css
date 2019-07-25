@@ -9,7 +9,10 @@
     transform: translate(-50%, -50%);
 }
 
-.login-background {
+#login{
+    position: absolute;
+    height: 100%;
+    width: 100%;
     background-color: #7CD176;
 }
 
@@ -48,4 +51,12 @@ a.text-decoration-none:hover {
 
 .carousel-inner img {
     margin: 0 auto;
+}
+
+.modal-backdrop {
+    display: none;
+}
+
+.modal {
+    background: rgba(0,0,0,0.5);
 }

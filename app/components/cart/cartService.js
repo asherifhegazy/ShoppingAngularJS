@@ -1,11 +1,14 @@
-eShopApp.factory('cart',function ($http, config, session) {
-    // let user = session.getLoggedInUser();
+eShopApp.factory('cart',function ($http, API) {
 
-    const cartAPI = config.api + 'CartItems/';
+    const cartAPI = API.baseUrl + API.cart;
 
     return {
         getCartItems: function (userId) {
             return $http({method: 'GET', url: cartAPI + userId});
+        },
+
+        getNumberOfCartItems: function(userId) {
+            return $http({method: 'GET', url: cartAPI + 'count/' + userId});
         },
 
         addCartItem: function (item) {
@@ -22,7 +25,7 @@ eShopApp.factory('cart',function ($http, config, session) {
         },
 
         submitOrder: function (userId) {
-            return $http({method: 'POST', url: config.api + 'Orders/' + user.id});
+            return $http({method: 'POST', url: API.baseUrl + API.orders + userId});
         }
     }
 });

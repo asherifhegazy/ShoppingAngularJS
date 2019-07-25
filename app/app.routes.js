@@ -8,8 +8,13 @@ eShopApp.config(function ($routeProvider,$locationProvider) {
         templateUrl:'app/components/products/productsView.html',
         controller:'ProductsController',
         resolve: {
-            products: function (products) {
-                return products.getProducts();
+            products: function (products, priceFilter) {
+                if(priceFilter.isFiltered()){
+                    let filter = priceFilter.getFilter();
+                    return products.getProductsFiltered(filter.minPrice, filter.maxPrice);
+                }
+                else
+                    return products.getProducts();
             }
         }
     });
@@ -30,7 +35,7 @@ eShopApp.config(function ($routeProvider,$locationProvider) {
         resolve: {
             cartItems: function (cart,session) {
                 let id = 0;
-                if(session.isUserLooged()) {
+                if(session.isUserLogged()) {
                     let user = session.getLoggedInUser();
                     id = user.id;
                 }

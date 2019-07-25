@@ -1,5 +1,5 @@
 eShopApp.controller('ProductDetailsController',function ($scope, $route, session, productDetails, cart, $location) {
-    $scope.isDisabled = !session.isUserLooged();
+    $scope.isDisabled = !session.isUserLogged();
 
     $scope.product = $route.current.locals.product.data;
 
@@ -9,6 +9,7 @@ eShopApp.controller('ProductDetailsController',function ($scope, $route, session
 
     $scope.stepperPlusEnabled = false;
 
+    $scope.ready = false;
 
     $scope.addQuantity = function () {
         if($scope.product.quantity > $scope.stepper){
@@ -38,6 +39,8 @@ eShopApp.controller('ProductDetailsController',function ($scope, $route, session
     };
     
     $scope.addToCart = function () {
+        $scope.ready = true;
+
         let cartItem = {
             UserId: session.getLoggedInUser().id,
             ProductId: $scope.product.id,
@@ -46,10 +49,14 @@ eShopApp.controller('ProductDetailsController',function ($scope, $route, session
 
         cart.addCartItem(cartItem)
             .then(function (response) {
+                $scope.ready = false;
+
                 toastr.success('Cart updated successfully');
                 $location.path('home')
             })
             .catch(function (response) {
+                $scope.ready = false;
+
                 toastr.error('Something Went Wrong');
             });
     }

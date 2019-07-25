@@ -1,7 +1,3 @@
-eShopApp.factory('patterns',function () {
-    return {
-        usernamePattern: /^(?:[A-Za-z0-9]+)(?:[A-Za-z0-9]*)$/
-
-    }
-
+eShopApp.constant('PATTERNS',{
+    username: /^(?:[A-Za-z0-9]+)(?:[A-Za-z0-9]*)$/
 });
