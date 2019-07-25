@@ -9,9 +9,12 @@
     transform: translate(-50%, -50%);
 }
 
-/*body:has(#login){*/
-/*    background-color: #7CD176;*/
-/*}*/
+#login{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #7CD176;
+}
 
 .login {
     height: 100%;

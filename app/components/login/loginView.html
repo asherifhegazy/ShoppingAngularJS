@@ -1,26 +1,28 @@
-<div class="container" id="login">
-    <div class="centered text-center">
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <i class="fas fa-shopping-cart"></i> <span class="lead font-weight-bold">eShop.com</span>
-            </div>
-
-            <div class="mt-3">
-                <form name="loginForm" class="justify-content-center">
-                    <div class="form-group">
-                        <input class="form-control" type="text" required data-ng-pattern="usernamePattern"
-                               placeholder="User Name" data-ng-model="username">
-                    </div>
-                    <button type="submit" class="btn btn-primary" data-ng-disabled="loginForm.$invalid"
-                            data-ng-click="login(username,loginForm)">Login
-                    </button>
-                </form>
-                <div class="mt-3">
-                    <loading-spinner ready="ready"/>
+<div id="login">
+    <div class="container">
+        <div class="centered text-center">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <i class="fas fa-shopping-cart"></i> <span class="lead font-weight-bold">eShop.com</span>
                 </div>
+
+                <div class="mt-3">
+                    <form name="loginForm" class="justify-content-center">
+                        <div class="form-group">
+                            <input class="form-control" type="text" required data-ng-pattern="usernamePattern"
+                                   placeholder="User Name" data-ng-model="username">
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-ng-disabled="loginForm.$invalid"
+                                data-ng-click="login(username,loginForm)">Login
+                        </button>
+                    </form>
+                    <div class="mt-3">
+                        <loading-spinner ready="ready"/>
+                    </div>
+                </div>
+
+
             </div>
-
-
         </div>
     </div>
 </div>

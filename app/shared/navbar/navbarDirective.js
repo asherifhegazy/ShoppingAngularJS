@@ -4,9 +4,9 @@ eShopApp.directive('navBar',function () {
         replace: true,
         templateUrl: 'app/shared/navbar/navbar.html',
         scope:{
-
+            filterReady: '='
         },
-        controller: function ($scope, session, cart, priceFilter, $route, $location) {
+        controller: function ($scope, session, cart, priceFilter, $location) {
             $scope.username = '';
 
             $scope.productsFilter = {
