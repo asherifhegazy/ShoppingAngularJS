@@ -5,7 +5,6 @@ eShopApp.controller('LoginController', function ($scope, login, session, pattern
         if (loginForm.$valid) {
             login.getUser(username)
                 .then(function(response) {
-
                     if(response.data){
                         session.login(response.data);
                         toastr.success('Welcome ' + response.data.username);

@@ -14,7 +14,9 @@ eShopApp.factory('$localStorage', function ($window) {
         $window.localStorage[key] = JSON.stringify(value);
     },
     isExists: (key) => {
-        return !!$window.localStorage[key];
+        if($window.localStorage[key])
+            return true;
+        return false;
     },
     remove: (key) => {
         $window.localStorage.removeItem(key);

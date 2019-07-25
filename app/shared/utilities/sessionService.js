@@ -10,6 +10,10 @@ eShopApp.factory('session', function ($localStorage) {
 
         login: function (user) {
             $localStorage.setObject('user', user);
+        },
+
+        isUserLooged: function () {
+            return $localStorage.isExists('user');
         }
     }
 

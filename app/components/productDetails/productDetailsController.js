@@ -1,10 +1,14 @@
-eShopApp.controller('ProductDetailsController',function ($scope, $route) {
+eShopApp.controller('ProductDetailsController',function ($scope, $route, session, productDetails, cart, $location) {
+    $scope.isDisabled = !session.isUserLooged();
+
     $scope.product = $route.current.locals.product.data;
+
     $scope.stepper = 1;
 
     $scope.stepperMinusEnabled = true;
 
     $scope.stepperPlusEnabled = false;
+
 
     $scope.addQuantity = function () {
         if($scope.product.quantity > $scope.stepper){
@@ -32,5 +36,22 @@ eShopApp.controller('ProductDetailsController',function ($scope, $route) {
     $scope.nextImage = function () {
         angular.element('#productImagesCarousel').carousel('next');
     };
+    
+    $scope.addToCart = function () {
+        let cartItem = {
+            UserId: session.getLoggedInUser().id,
+            ProductId: $scope.product.id,
+            Quantity: $scope.stepper
+        };
+
+        cart.addCartItem(cartItem)
+            .then(function (response) {
+                toastr.success('Cart updated successfully');
+                $location.path('home')
+            })
+            .catch(function (response) {
+                toastr.error('Something Went Wrong');
+            });
+    }
 
 });
