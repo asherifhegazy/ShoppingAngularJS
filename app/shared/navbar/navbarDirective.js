@@ -6,7 +6,7 @@ eShopApp.directive('navBar',function () {
         scope:{
 
         },
-        controller: function ($scope, session, cart, priceFilter, $route) {
+        controller: function ($scope, session, cart, priceFilter, $route, $location) {
             $scope.username = '';
 
             $scope.productsFilter = {
@@ -41,13 +41,13 @@ eShopApp.directive('navBar',function () {
             
             $scope.applyFilter = function () {
                 priceFilter.addFilter($scope.productsFilter);
-                $route.reload();
+                $location.path('home');
             };
             
             $scope.clearFilter = function () {
                 priceFilter.clearFilter();
-                $route.reload();
-            } 
+                $location.path('home');
+            }
         }
     }
 });
