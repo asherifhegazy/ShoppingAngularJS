@@ -1,1 +1,1 @@
-let eShopApp = angular.module('eShopApp',['ngResource','ngRoute','ngCookies']);
+let eShopApp = angular.module('eShopApp',['ngRoute']);
